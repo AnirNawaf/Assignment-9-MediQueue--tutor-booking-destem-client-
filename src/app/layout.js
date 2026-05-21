@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import AuthProvider from "@/providers/AuthProvider";
 import { Toaster } from "react-hot-toast";
 import Footer from "@/components/Footer";
 
@@ -20,26 +21,18 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const user = {
-    displayName: "Student Name",
-    email: "student@gmail.com",
-    photoURL: "https://i.ibb.co/4pDNDk1/avatar.png",
-  };
-
   return (
-    <html lang="en" className={
-    `
-    ${geistSans.variable} ${geistMono.variable} h-full antialiased
-
-    `
-    }>
+    <html lang="en"  className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`} >
+      
       <body className="min-h-full flex flex-col">
-        <Navbar user={user} />
+        <AuthProvider>
+          <Navbar />
 
-        <main className="flex-1">{children}</main>
-        <Footer />
+          <main className="flex-1">{children}</main>
+          <Footer />
 
-        <Toaster position="top-center" />
+          <Toaster position="top-center" />
+        </AuthProvider>
       </body>
     </html>
   );
