@@ -11,7 +11,9 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-3">Learning Services</h3>
           <ul className="space-y-2 text-gray-300 text-sm">
             <li><a href="/" className="hover:text-white">Home</a></li>
+
             <li><a href="/sessions" className="hover:text-white">Study Sessions</a></li>
+
             <li><a href="/tutors" className="hover:text-white">Tutors</a></li><li><a href="/my-bookings" className="hover:text-white">My Bookings</a></li>
           </ul>
         </div>
@@ -28,13 +30,18 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-3">Follow Us</h3>
           <div className="flex gap-4 text-gray-300 text-sm">
             <a href="#" target="_blank" className="hover:text-white"> Facebook</a>
+
             <a href="#" target="_blank" className="hover:text-white">LinkedIn</a>
+
             <a href="#" target="_blank" className="hover:text-white">Twitter</a>
           </div>
+
+
         </div>
       </div>
       <div className="border-t border-gray-700 text-center py-4 text-gray-400 text-sm">
-        <p>&copy {new Date().getFullYear()} MediQueue. All rights reserved.</p>
+
+        <p>&copy; {new Date().getFullYear()} Md. Anir Nawaf Bishal. All rights reserved.</p>
       </div>
     </footer>
   );
