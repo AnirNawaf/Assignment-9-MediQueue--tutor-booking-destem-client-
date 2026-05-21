@@ -56,7 +56,8 @@ const Navbar = () => {
                 {navLink("/my-tutors", "My Tutors")}
                 {navLink("/my-booked-sessions", "My Booked Sessions")}
               </>
-            )}
+            )
+            }
           </div>
 
           <div className="hidden md:block">
