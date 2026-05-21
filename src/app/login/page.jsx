@@ -82,9 +82,7 @@ export default function LoginPage() {
         )}
 
         {!showReset && (
-          <p className="text-center text-sm">
-            Don't have an account?{" "}
-            <Link href="/register" className="text-blue-600 font-semibold hover:underline">
+          <p className="text-center text-sm">  Don't have an account?{" "}  <Link href="/register" className="text-blue-600 font-semibold hover:underline">
               Register
             </Link>
           </p>
