@@ -55,7 +55,7 @@ const AuthProvider = ({ children }) => {
     const provider = new GoogleAuthProvider();
     const result = await signInWithPopup(auth, provider);
     const firebaseUser = result.user;
-    saveToken(firebaseUser.uid); // optional
+    saveToken(firebaseUser.uid); 
     setUser({
       name: firebaseUser.displayName,
       email: firebaseUser.email,
