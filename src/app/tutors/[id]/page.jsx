@@ -116,7 +116,6 @@ const TutorDetails = () => {
           </p>
         </div>
 
-        {/* Buttons */}
         <div className="flex flex-col md:flex-row gap-4 mt-6">
           <button onClick={handleBookClick}  className="flex-1 cursor-pointer transition hover:scale-110 font-bold  bg-red-600 text-white py-2 rounded hover:bg-red-700 transition">
             Book Session

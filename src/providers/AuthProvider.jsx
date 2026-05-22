@@ -98,7 +98,7 @@ const AuthProvider = ({ children }) => {
     user,
     registerUser,
     loginUser,
-    loginWithGoogle, // ✅ added Google login
+    loginWithGoogle, 
     updatePassword,
     logout,
   };

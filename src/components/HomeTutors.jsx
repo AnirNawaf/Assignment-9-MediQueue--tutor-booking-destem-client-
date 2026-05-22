@@ -51,11 +51,7 @@ const HomeTutors = ({ tutors }) => {
               key={tutor._id}
               className="border rounded-xl p-4 shadow bg-gray-100 text-center"
             >
-              <img
-                src={tutor.photo}
-                alt={tutor.tutorName}
-                className="w-full h-52 object-cover rounded-lg"
-              />
+              <img src={tutor.photo} alt={tutor.tutorName}  className="w-full h-52 object-cover rounded-lg" />
 
               <h3 className="text-xl font-bold mt-4">
                 {tutor.tutorName}
@@ -66,18 +62,15 @@ const HomeTutors = ({ tutors }) => {
               <p>Slot: {tutor.totalSlot}</p>
               <p>Mode: {tutor.teachingMode}</p>
 
-              <Link
-                href={`/tutors/${tutor._id}`}
-                className="inline-block mt-4 cursor-pointer transition hover:scale-110 font-bold bg-gradient-to-r from-purple-800 to-purple-900 text-white px-4 py-2 rounded"
-              >
+              <Link  href={`/tutors/${tutor._id}`}  className="inline-block mt-4 cursor-pointer transition hover:scale-110 font-bold bg-gradient-to-r from-purple-800 to-purple-900 text-white px-4 py-2 rounded" >
                 View Details
               </Link>
             </div>
           ))}
         </div>
-      )}
+      )
+      }
 
-      {/* Stats Section */}
       <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-6 text-center bg-gradient-to-r from-pink-500 via-red-500 via-orange-400 to-yellow-400 text-white rounded-xl p-8 shadow">
         <div className="flex flex-col items-center justify-center p-4 bg-purple-700 rounded-lg">
           <div className="text-3xl font-bold">3105+</div>
@@ -96,11 +89,8 @@ const HomeTutors = ({ tutors }) => {
       </div>
 
 
-
-      {/* Stats Section এর নিচে motivational section */}
 <div className="mt-16 flex flex-col md:flex-row items-center justify-between gap-6 bg-gray-50 rounded-xl p-8 shadow">
   
-  {/* Motivational text */}
   <div className="flex-1">
     <h2 className="text-3xl font-bold mb-4 text-gray-800">
       "Learning never exhausts the mind, it only ignites it!"
@@ -111,7 +101,6 @@ const HomeTutors = ({ tutors }) => {
     </p>
   </div>
 
-  {/* Image */}
   <div className="flex-1">
     <img src="/img/illustration.png" alt="Logo" className="" />
   </div>

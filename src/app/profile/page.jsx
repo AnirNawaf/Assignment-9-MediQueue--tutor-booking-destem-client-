@@ -35,11 +35,7 @@ export default function ProfilePage() {
       <div className="w-full max-w-md bg-white rounded-lg shadow-2xl p-8 text-center">
         <div className="flex justify-center mb-4">
           {user.image ? (
-            <img
-              src={user.image}
-              alt={userName}
-              className="w-28 h-28 rounded-full object-cover"
-            />
+            <img src={user.image}  alt={userName} className="w-28 h-28 rounded-full object-cover" />
           ) : (
             <div className="w-28 h-28 rounded-full bg-gray-300 flex items-center justify-center">
               <svg className="w-20 h-20 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
