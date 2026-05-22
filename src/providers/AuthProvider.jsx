@@ -1,6 +1,7 @@
+
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { auth } from "../firebase/firebase.config";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
@@ -14,7 +15,7 @@ const AuthProvider = ({ children }) => {
   const router = useRouter();
 
   const saveToken = (token) => {
-    localStorage.setItem("access-token", token);
+    if (typeof window !== "undefined") localStorage.setItem("access-token", token);
   };
 
   const registerUser = async ({ email, password, name }) => {
@@ -23,7 +24,6 @@ const AuthProvider = ({ children }) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password, name }),
     });
-
     const data = await res.json();
     if (res.ok) {
       saveToken(data.token);
@@ -40,7 +40,6 @@ const AuthProvider = ({ children }) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     });
-
     const data = await res.json();
     if (res.ok) {
       saveToken(data.token);
@@ -52,22 +51,17 @@ const AuthProvider = ({ children }) => {
   };
 
   const loginWithGoogle = async () => {
-    try {
-      const provider = new GoogleAuthProvider();
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-
-      saveToken(user.uid); // optional, save Firebase uid as token
-      setUser({
-        name: user.displayName,
-        email: user.email,
-        photo: user.photoURL,
-      });
-
-      return user;
-    } catch (err) {
-      throw new Error(err.message);
-    }
+    if (!auth) throw new Error("Firebase not initialized yet");
+    const provider = new GoogleAuthProvider();
+    const result = await signInWithPopup(auth, provider);
+    const firebaseUser = result.user;
+    saveToken(firebaseUser.uid); // optional
+    setUser({
+      name: firebaseUser.displayName,
+      email: firebaseUser.email,
+      photo: firebaseUser.photoURL,
+    });
+    return firebaseUser;
   };
 
   const updatePassword = async (email, newPassword) => {
@@ -76,20 +70,13 @@ const AuthProvider = ({ children }) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, newPassword }),
     });
-
-    const contentType = res.headers.get("content-type");
-    if (!contentType || !contentType.includes("application/json")) {
-      const text = await res.text();
-      throw new Error("Unexpected response: " + text);
-    }
-
     const data = await res.json();
     if (res.ok) return data;
     else throw new Error(data.message || "Password update failed");
   };
 
   const logout = () => {
-    localStorage.removeItem("access-token");
+    if (typeof window !== "undefined") localStorage.removeItem("access-token");
     setUser(null);
     router.push("/login");
   };
@@ -98,7 +85,7 @@ const AuthProvider = ({ children }) => {
     user,
     registerUser,
     loginUser,
-    loginWithGoogle, 
+    loginWithGoogle,
     updatePassword,
     logout,
   };
