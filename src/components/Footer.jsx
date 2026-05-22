@@ -1,3 +1,12 @@
+"use client";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faLinkedin,
+  faTwitter,
+  faGithub,
+} from "@fortawesome/free-brands-svg-icons";
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white mt-10">
@@ -29,11 +38,20 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-3">Follow Us</h3>
           <div className="flex gap-4 text-gray-300 text-sm">
-            <a href="#" target="_blank" className="hover:text-white"> Facebook</a>
+            <a href="#" target="_blank" className="hover:text-white">
+              <FontAwesomeIcon icon={faFacebook} />
+            </a>
 
-            <a href="#" target="_blank" className="hover:text-white">LinkedIn</a>
+            <a href="#" target="_blank" className="hover:text-white">
+              <FontAwesomeIcon icon={faLinkedin} />
+            </a>
+            <a href="#" target="_blank" className="hover:text-white">
+              <FontAwesomeIcon icon={faGithub} className="w-5 h-5" />
+            </a>
 
-            <a href="#" target="_blank" className="hover:text-white">Twitter</a>
+            <a href="#" target="_blank" className="hover:text-white">
+              <FontAwesomeIcon icon={faTwitter} />
+            </a>
           </div>
 
 

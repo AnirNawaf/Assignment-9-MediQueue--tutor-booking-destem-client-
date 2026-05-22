@@ -2,6 +2,8 @@
 
 import { createContext, useContext, useState } from "react";
 import { useRouter } from "next/navigation";
+import { auth } from "../firebase/firebase.config";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 const AuthContext = createContext(null);
 
@@ -49,6 +51,25 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  const loginWithGoogle = async () => {
+    try {
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+
+      saveToken(user.uid); // optional, save Firebase uid as token
+      setUser({
+        name: user.displayName,
+        email: user.email,
+        photo: user.photoURL,
+      });
+
+      return user;
+    } catch (err) {
+      throw new Error(err.message);
+    }
+  };
+
   const updatePassword = async (email, newPassword) => {
     const res = await fetch("http://localhost:5000/users/update-password", {
       method: "PATCH",
@@ -77,6 +98,7 @@ const AuthProvider = ({ children }) => {
     user,
     registerUser,
     loginUser,
+    loginWithGoogle, // ✅ added Google login
     updatePassword,
     logout,
   };

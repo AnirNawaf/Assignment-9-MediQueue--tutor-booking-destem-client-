@@ -5,6 +5,9 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { useAuth } from "@/providers/AuthProvider";
 import toast from "react-hot-toast";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faList } from "@fortawesome/free-solid-svg-icons";
+
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -27,7 +30,7 @@ const Navbar = () => {
   const navLink = (href, text) => (
     <Link href={href} onClick={() => setMobileOpen(false)} className={
       `
-      transition hover:text-blue-600 ${pathname === href ? "text-blue-600 font-semibold" : "text-gray-700"
+      transition hover:text-blue-600  cursor-pointer transition hover:scale-120 font-bold ${pathname === href ? " text-white font-semibold" : "text-gray-700"
       }
       `
     }>
@@ -36,19 +39,19 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b shadow-sm">
+    <nav className="text-white sticky top-0 z-50  bg-gradient-to-r from-green-400 via-teal-400 via-cyan-300 to-blue-300 backdrop-blur border-b shadow-sm">
       <div className="max-w-7xl mx-auto px-5">
-        <div className="h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">
-              M
+        <div className="h-16 text-white flex items-center justify-between">
+          <Link href="/" className="flex text-white cursor-pointer transition hover:scale-120 font-bold items-center gap-2">
+            <div className="">
+             <img src="/img/logo.png" alt="Logo" className="w-10 h-10" />
             </div>
-            <span className="text-2xl font-bold text-blue-600">
+            <span className="text-2xl font-bold  text-white">
               MediQueue
             </span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-7 font-medium">
+          <div className="hidden  text-white md:flex text-white items-center gap-7 font-medium">
             {navLink("/", "Home")}
             {navLink("/tutors", "Tutors")}
 
@@ -66,7 +69,7 @@ const Navbar = () => {
               <div className="relative">
                 <button
                   onClick={() => setOpen(!open)}
-                  className="flex items-center gap-2"
+                  className="flex cursor-pointer transition hover:scale-120 font-bold  items-center gap-2"
                 >
                   <img src={user.photoURL || "https://i.ibb.co.com/4pDNDk1/avatar.png"} alt="User" className="w-10 h-10 rounded-full object-cover border-2 border-blue-600" />
                   <span className="font-medium text-gray-700">
@@ -81,11 +84,11 @@ const Navbar = () => {
                       <p className="text-sm text-gray-500 break-all"> {user.email}  </p>
                     </div>
 
-                    <Link href="/profile" onClick={() => setOpen(false)} className="block px-3 py-2 mt-2 rounded hover:bg-blue-50">
+                    <Link href="/profile" onClick={() => setOpen(false)} className="text-black  cursor-pointer transition hover:scale-110 font-bold px-3 py-2 mt-2 rounded hover:bg-blue-5">
                       Profile
                     </Link>
 
-                    <button onClick={handleLogout} className="w-full text-left px-3 py-2 rounded text-red-600 hover:bg-red-50" >
+                    <button onClick={handleLogout} className="w-full  cursor-pointer transition hover:scale-110 font-bold  text-left px-3 py-2 rounded text-red-600 hover:bg-red-50" >
                       Logout
                     </button>
                   </div>
@@ -94,19 +97,19 @@ const Navbar = () => {
               </div>
             ) : (
               <div className="flex items-center gap-3">
-                <Link href="/login" className="border border-blue-600 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50" >
+                <Link href="/login" className="border cursor-pointer transition hover:scale-120 font-bold text-white border-blue-600 text-blue-600 px-4 py-2 rounded-lg hover:bg-gradient-to-r from-purple-800 to-purple-900" >
                   Login
                 </Link>
 
-                <Link href="/register" className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700" >
+                <Link href="/register" className="hover:bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 bg-blue-600 cursor-pointer transition hover:scale-120 font-bold text-white px-4 py-2 rounded-lg hover:bg-blue-700" >
                   Register
                 </Link>
               </div>
             )}
           </div>
 
-          <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden border px-3 py-2 rounded-lg" >
-            ☰
+          <button onClick={() => setMobileOpen(!mobileOpen)} className=" cursor-pointer transition hover:scale-120 font-bold md:hidden border px-3 py-2 rounded-lg" >
+            <FontAwesomeIcon icon={faList} />
           </button>
         </div>
 
@@ -145,7 +148,7 @@ const Navbar = () => {
                     Profile
                   </Link>
 
-                  <button  onClick={handleLogout}   className="w-full bg-red-500 text-white px-4 py-2 rounded-lg" >
+                  <button  onClick={handleLogout}   className="w-full cursor-pointer transition hover:scale-120 font-bold  bg-red-500 text-white px-4 py-2 rounded-lg" >
                     Logout
                   </button>
                 </div>

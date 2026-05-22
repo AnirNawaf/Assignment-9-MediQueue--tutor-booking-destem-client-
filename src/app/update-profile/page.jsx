@@ -85,7 +85,7 @@ const ProfilePage = () => {
 
           <input  type="text"  placeholder="Photo URL"   className="border p-3 rounded w-full" value={photoURL}  onChange={(e) => setPhotoURL(e.target.value)} />
 
-          <button   onClick={handleUpdateProfile}   className="bg-indigo-700 text-white font-semibold px-6 py-3 rounded shadow hover:bg-indigo-800 transition mt-2"  >
+          <button   onClick={handleUpdateProfile}   className=" cursor-pointer transition hover:scale-110 font-bold  bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 text-white font-semibold px-6 py-3 rounded shadow hover:bg-indigo-800 transition mt-2"  >
             
             Update Profile
           </button>

@@ -84,7 +84,7 @@ const AddTutor = () => {
           <option value="Both">Both</option>
         </select>
 
-        <button type="submit" className="bg-blue-600 text-white px-5 py-3 rounded w-full">Submit</button>
+        <button type="submit" className="bg-blue-600 cursor-pointer transition hover:scale-110 font-bold text-white px-5 py-3 rounded w-full">Submit</button>
 
       </form>
     </div>

@@ -118,10 +118,10 @@ const TutorDetails = () => {
 
         {/* Buttons */}
         <div className="flex flex-col md:flex-row gap-4 mt-6">
-          <button onClick={handleBookClick}  className="flex-1 bg-red-600 text-white py-2 rounded hover:bg-red-700 transition">
+          <button onClick={handleBookClick}  className="flex-1 cursor-pointer transition hover:scale-110 font-bold  bg-red-600 text-white py-2 rounded hover:bg-red-700 transition">
             Book Session
           </button>
-          <button onClick={handleAddToList}className="flex-1 bg-red-600 text-white py-2 rounded hover:bg-red-700 transition">
+          <button onClick={handleAddToList}className="flex-1  cursor-pointer transition hover:scale-110 font-bold bg-red-600 text-white py-2 rounded hover:bg-red-700 transition">
             Add to List
           </button>
         </div>
@@ -145,7 +145,7 @@ const TutorDetails = () => {
 
                 <input value={user.email} readOnly  className="border p-2 w-full rounded bg-gray-100"/>
 
-                <button type="submit" className="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700 transition">
+                <button type="submit" className=" cursor-pointer transition hover:scale-120 font-bold bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700 transition">
                   Confirm Booking
                 </button>
               </form>

@@ -110,11 +110,11 @@ const MyTutors = () => {
               <p><span className="font-semibold">Creator Email:</span> {tutor.creatorEmail}</p>
 
               <div className="flex gap-3 pt-3">
-                <button  onClick={() => setSelectedTutor(tutor)} className="bg-green-600 text-white px-4 py-2 rounded">
+                <button  onClick={() => setSelectedTutor(tutor)} className=" cursor-pointer transition hover:scale-120 font-bold bg-green-600 text-white px-4 py-2 rounded">
                   Update
                 </button>
 
-                <button onClick={() => handleDeleteTutor(tutor._id)} className="bg-red-600 text-white px-4 py-2 rounded">
+                <button onClick={() => handleDeleteTutor(tutor._id)} className=" cursor-pointer transition hover:scale-120 font-bold bg-red-600 text-white px-4 py-2 rounded">
                   Delete
                 </button>
               </div>
@@ -172,7 +172,7 @@ const MyTutors = () => {
                   Update Tutor
                 </button>
 
-                <button  type="button"  onClick={() => setSelectedTutor(null)}  className="bg-gray-600 text-white px-5 py-3 rounded" >
+                <button  type="button"  onClick={() => setSelectedTutor(null)}  className=" cursor-pointer transition hover:scale-120 font-bold bg-gray-600 text-white px-5 py-3 rounded" >
                   Cancel
                 </button>
               </div>

@@ -88,11 +88,11 @@ const MyBookedSessions = () => {
                   <td className="border p-3">{booking.status}</td>
                   <td className="border p-3 flex gap-2">
 
-                    <button  disabled={booking.status === "cancelled"} onClick={() => handleCancel(booking._id)}  className="bg-red-600 text-white px-3 py-1 rounded disabled:bg-gray-400" >
+                    <button  disabled={booking.status === "cancelled"} onClick={() => handleCancel(booking._id)}  className="bg-red-600 text-white px-3 py-1 rounded disabled:bg-gray-400 cursor-pointer transition hover:scale-100 font-bold " >
                       Cancel
                     </button>
 
-                    <button  onClick={() => handleDelete(booking._id)}  className="bg-gray-700 text-white px-3 py-1 rounded" >
+                    <button  onClick={() => handleDelete(booking._id)}  className="bg-gray-700 text-white px-3 py-1 rounded cursor-pointer transition hover:scale-100 font-bold " >
                       Delete
                     </button>
                   </td>
