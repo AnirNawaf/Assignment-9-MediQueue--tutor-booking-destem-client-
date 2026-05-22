@@ -38,7 +38,7 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-3">Follow Us</h3>
           <div className="flex gap-4 text-gray-300 text-sm">
-            <a href="#" target="_blank" className="hover:text-white">
+            <a href="git" target="_blank" className="hover:text-white">
               <FontAwesomeIcon icon={faFacebook} />
             </a>
 

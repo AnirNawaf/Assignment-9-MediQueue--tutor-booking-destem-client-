@@ -3,8 +3,8 @@
 
 import { createContext, useContext, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { auth } from "../firebase/firebase.config";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+
+
 
 const AuthContext = createContext(null);
 
