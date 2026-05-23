@@ -81,6 +81,8 @@ const AddTutor = () => {
 
           <option value="Offline">Offline</option>
 
+       
+       
           <option value="Both">Both</option>
         </select>
 
