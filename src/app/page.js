@@ -4,9 +4,10 @@ const Home = async () => {
   let tutors = [];
 
   try {
-    const res = await fetch("http://127.0.0.1:5000/tutors?limit=6", {
-      cache: "no-store",
-    });
+    const res = await fetch(
+      "https://assignment-9-mediqueue-tutor-booking.onrender.com/tutors?limit=6",
+      { cache: "no-store" }
+    );
 
     if (!res.ok) {
       throw new Error("Failed to fetch tutors");

@@ -12,7 +12,6 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const router = useRouter();
 
-  
   const saveToken = (token) => {
     if (typeof window !== "undefined") localStorage.setItem("access-token", token);
   };
