@@ -12,7 +12,7 @@ const HomeTutors = ({ tutors }) => {
 
   return (
     <section className="max-w-7xl mx-auto px-5 py-12">
-      {/* Hero / Heading Section */}
+     
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
           Find Your <span className="text-blue-400">Dream</span> Tutors

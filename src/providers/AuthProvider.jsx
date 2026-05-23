@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 const AuthContext = createContext(null);
 export const useAuth = () => useContext(AuthContext);
 
-const BASE_URL = "https://assignment-9-mediqueue-tutor-booking.onrender.com";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
