@@ -9,7 +9,7 @@ const Tutors = () => {
   const [subjectFilter, setSubjectFilter] = useState("All");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/tutors?search=${search}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/tutors?search=${search}`)
       .then((res) => res.json())
       .then((data) => setTutors(data))
       .catch((error) => console.log(error));

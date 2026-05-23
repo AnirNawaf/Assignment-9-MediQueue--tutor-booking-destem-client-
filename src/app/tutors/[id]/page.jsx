@@ -17,7 +17,7 @@ const TutorDetails = () => {
   useEffect(() => {
     if (!id) return;
 
-    fetch(`http://localhost:5000/tutors/${id}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/tutors/${id}`)
       .then(async (res) => {
         if (!res.ok) throw new Error("Tutor not found");
         return res.json();
@@ -47,7 +47,7 @@ const TutorDetails = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/bookings", {
+      const res = await fetch("${process.env.NEXT_PUBLIC_API_URL}/bookings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(bookingData),
