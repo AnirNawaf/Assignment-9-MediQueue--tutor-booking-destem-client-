@@ -66,7 +66,9 @@ const HomeTutors = ({ tutors }) => {
                 View Details
               </Link>
             </div>
-          ))}
+          ))
+          
+          }
         </div>
       )
       }
