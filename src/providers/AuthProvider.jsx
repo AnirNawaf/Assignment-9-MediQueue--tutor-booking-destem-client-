@@ -12,12 +12,11 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const router = useRouter();
 
+  
   const saveToken = (token) => {
     if (typeof window !== "undefined") localStorage.setItem("access-token", token);
   };
 
-
-  
   const registerUser = async ({ email, password, name }) => {
     const res = await fetch(`${BASE_URL}/register-local`, {
       method: "POST",
