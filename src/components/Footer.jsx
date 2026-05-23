@@ -38,14 +38,14 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-3">Follow Us</h3>
           <div className="flex gap-4 text-gray-300 text-sm">
-            <a href="https://www.facebook.com/share/1EBEiWt6b4/" target="_blank" className="hover:text-white">
+            <a href="https://www.facebook.com/share/1EBEiWt6b4/" className="hover:text-white">
               <FontAwesomeIcon icon={faFacebook} />
             </a>
 
-            <a href="https://www.linkedin.com/in/md-anir-nawaf-bishal-34aa7a239/" target="_blank" className="hover:text-white">
+            <a href="https://www.linkedin.com/in/md-anir-nawaf-bishal-34aa7a239/" _ className="hover:text-white">
               <FontAwesomeIcon icon={faLinkedin} />
             </a>
-            <a href="https://github.com/AnirNawaf" target="_blank" className="hover:text-white">
+            <a href="https://github.com/AnirNawaf"  className="hover:text-white">
               <FontAwesomeIcon icon={faGithub} className="w-5 h-5" />
             </a>
 

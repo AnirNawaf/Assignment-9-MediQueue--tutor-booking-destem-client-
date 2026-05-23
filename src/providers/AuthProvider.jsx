@@ -1,14 +1,12 @@
-
 "use client";
 
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 import { useRouter } from "next/navigation";
 
-
-
 const AuthContext = createContext(null);
-
 export const useAuth = () => useContext(AuthContext);
+
+const BASE_URL = "https://assignment-9-mediqueue-tutor-booking.onrender.com";
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -19,7 +17,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const registerUser = async ({ email, password, name }) => {
-    const res = await fetch("http://localhost:5000/register-local", {
+    const res = await fetch(`${BASE_URL}/register-local`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password, name }),
@@ -35,7 +33,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const loginUser = async ({ email, password }) => {
-    const res = await fetch("http://localhost:5000/login-local", {
+    const res = await fetch(`${BASE_URL}/login-local`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -50,22 +48,8 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  const loginWithGoogle = async () => {
-    if (!auth) throw new Error("Firebase not initialized yet");
-    const provider = new GoogleAuthProvider();
-    const result = await signInWithPopup(auth, provider);
-    const firebaseUser = result.user;
-    saveToken(firebaseUser.uid); 
-    setUser({
-      name: firebaseUser.displayName,
-      email: firebaseUser.email,
-      photo: firebaseUser.photoURL,
-    });
-    return firebaseUser;
-  };
-
   const updatePassword = async (email, newPassword) => {
-    const res = await fetch("http://localhost:5000/users/update-password", {
+    const res = await fetch(`${BASE_URL}/users/update-password`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, newPassword }),
@@ -85,7 +69,6 @@ const AuthProvider = ({ children }) => {
     user,
     registerUser,
     loginUser,
-    loginWithGoogle,
     updatePassword,
     logout,
   };
